@@ -1,0 +1,289 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+.resume-builder-app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.app-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #f472b6, #a855f7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.subtitle { color: #888; font-size: 0.85rem; }
+
+.builder-layout { display: flex; flex: 1; }
+
+/* Step Navigation */
+.step-nav {
+  width: 240px; background: white; border-right: 1px solid #e5e7eb;
+  padding: 16px 0; display: flex; flex-direction: column;
+}
+
+.step-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 20px; border: none; background: none;
+  cursor: pointer; font-size: 0.9rem; color: #666;
+  text-align: left; transition: all 0.2s; width: 100%;
+}
+
+.step-btn:hover { background: #f9fafb; color: #333; }
+
+.step-btn.active {
+  background: #f0f0ff; color: #667eea; font-weight: 600;
+  border-right: 3px solid #667eea;
+}
+
+.step-btn.completed { color: #22c55e; }
+
+.step-icon { font-size: 1.1rem; }
+
+.step-check { margin-left: auto; color: #22c55e; font-weight: 700; }
+
+/* Step Panel */
+.step-panel {
+  flex: 1; display: flex; flex-direction: column;
+  max-height: calc(100vh - 60px);
+}
+
+.step-content {
+  flex: 1; padding: 32px; overflow-y: auto;
+}
+
+.step-content h2 { font-size: 1.5rem; color: #1a1a2e; margin-bottom: 4px; }
+.step-description { color: #888; margin-bottom: 24px; }
+
+/* Forms */
+.form-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 4px; }
+.form-group.full-width { grid-column: 1 / -1; }
+
+.form-group label {
+  font-size: 0.85rem; font-weight: 600; color: #555;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  padding: 10px 12px; border: 2px solid #e5e7eb; border-radius: 8px;
+  font-size: 0.9rem; outline: none; font-family: inherit;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: #667eea;
+}
+
+.form-group textarea { resize: vertical; }
+
+.char-count { font-size: 0.75rem; color: #888; text-align: right; }
+
+/* Cards */
+.card {
+  background: white; border-radius: 12px; padding: 20px;
+  margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-header h3 { font-size: 1rem; color: #333; }
+
+.btn-remove {
+  padding: 4px 12px; background: #fef2f2; color: #ef4444;
+  border: none; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600;
+}
+
+.btn-remove:hover { background: #fee2e2; }
+
+.checkbox-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; color: #666; margin-bottom: 12px; cursor: pointer;
+}
+
+.btn-add-card {
+  width: 100%; padding: 12px; border: 2px dashed #d1d5db;
+  border-radius: 12px; background: none; cursor: pointer;
+  font-size: 0.9rem; color: #666; font-weight: 600; transition: all 0.2s;
+}
+
+.btn-add-card:hover { border-color: #667eea; color: #667eea; background: #f8f9ff; }
+
+/* Skills */
+.skill-input-group { display: flex; gap: 8px; margin-bottom: 16px; }
+
+.skill-input-group input {
+  flex: 1; padding: 10px 12px; border: 2px solid #e5e7eb;
+  border-radius: 8px; font-size: 0.9rem; outline: none;
+}
+
+.skill-input-group input:focus { border-color: #667eea; }
+
+.btn-add-skill {
+  padding: 10px 20px; background: #667eea; color: white;
+  border: none; border-radius: 8px; cursor: pointer; font-weight: 600;
+}
+
+.skills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+
+.skill-tag {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 12px; background: #eef0ff; color: #667eea;
+  border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+}
+
+.skill-remove {
+  border: none; background: none; color: #667eea; cursor: pointer;
+  font-size: 0.9rem; padding: 0;
+}
+
+.suggested-skills h4 { font-size: 0.85rem; color: #888; margin-bottom: 8px; }
+
+.suggested-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.suggested-tag {
+  padding: 4px 10px; border: 1px solid #e5e7eb; border-radius: 16px;
+  background: white; cursor: pointer; font-size: 0.8rem; color: #666;
+  transition: all 0.2s;
+}
+
+.suggested-tag:hover { border-color: #667eea; color: #667eea; }
+
+/* Step Navigation */
+.step-navigation {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px; border-top: 1px solid #e5e7eb; background: white;
+}
+
+.btn-prev, .btn-next {
+  padding: 10px 24px; border-radius: 8px; font-weight: 600;
+  cursor: pointer; font-size: 0.9rem; transition: all 0.2s;
+}
+
+.btn-prev {
+  background: white; border: 2px solid #e5e7eb; color: #666;
+}
+
+.btn-prev:hover:not(:disabled) { background: #f5f5f5; }
+
+.btn-next {
+  background: #667eea; border: none; color: white;
+}
+
+.btn-next:hover:not(:disabled) { background: #5a6fd6; }
+
+.btn-prev:disabled, .btn-next:disabled {
+  opacity: 0.4; cursor: not-allowed;
+}
+
+.step-indicator { font-size: 0.85rem; color: #888; }
+
+/* Preview */
+.preview-step { padding: 24px; }
+
+.preview-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 20px;
+}
+
+.preview-actions { display: flex; gap: 8px; }
+
+.btn-ai {
+  padding: 8px 16px; background: linear-gradient(135deg, #f472b6, #a855f7);
+  color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;
+}
+
+.btn-print {
+  padding: 8px 16px; background: #1a1a2e; color: white;
+  border: none; border-radius: 8px; cursor: pointer; font-weight: 600;
+}
+
+.ai-panel {
+  background: linear-gradient(135deg, #fdf2f8, #f3e8ff);
+  border: 1px solid #e9d5ff; border-radius: 12px; padding: 20px; margin-bottom: 20px;
+}
+
+.ai-panel h3 { color: #7c3aed; margin-bottom: 4px; }
+.ai-panel p { color: #888; font-size: 0.85rem; margin-bottom: 12px; }
+
+.ai-panel textarea {
+  width: 100%; padding: 10px; border: 2px solid #e9d5ff; border-radius: 8px;
+  font-family: inherit; resize: vertical; margin-bottom: 12px; outline: none;
+}
+
+.ai-panel textarea:focus { border-color: #a855f7; }
+
+.btn-generate {
+  padding: 10px 20px; background: #7c3aed; color: white;
+  border: none; border-radius: 8px; cursor: pointer; font-weight: 600;
+}
+
+.btn-generate:disabled { opacity: 0.5; cursor: not-allowed; }
+.ai-error { color: #ef4444; margin-top: 8px; font-size: 0.85rem; }
+
+/* Resume Preview */
+.resume-preview { display: flex; justify-content: center; }
+
+.resume-paper {
+  width: 210mm; min-height: 297mm; background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 40px;
+  font-size: 0.85rem; line-height: 1.5;
+}
+
+.resume-header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #1a1a2e; padding-bottom: 16px; }
+.resume-header h1 { font-size: 1.8rem; color: #1a1a2e; margin-bottom: 8px; }
+
+.contact-row {
+  display: flex; justify-content: center; gap: 16px;
+  font-size: 0.8rem; color: #666; flex-wrap: wrap;
+}
+
+.resume-section { margin-bottom: 16px; }
+
+.resume-section h2 {
+  font-size: 0.9rem; color: #1a1a2e; text-transform: uppercase;
+  letter-spacing: 1px; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.resume-item { margin-bottom: 10px; }
+
+.item-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.company { color: #666; }
+.date { font-size: 0.8rem; color: #888; white-space: nowrap; }
+
+.item-description { color: #444; margin-top: 4px; }
+.item-tech { color: #667eea; font-size: 0.8rem; margin-top: 2px; }
+.project-link { color: #667eea; font-size: 0.8rem; text-decoration: none; margin-left: 8px; }
+
+.resume-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.resume-skill-tag {
+  padding: 2px 10px; background: #f0f0f0; border-radius: 12px;
+  font-size: 0.8rem; color: #444;
+}
+
+@media print {
+  .app-header, .step-nav, .step-navigation, .preview-header, .ai-panel { display: none !important; }
+  .step-panel { max-height: none; }
+  .step-content { padding: 0; overflow: visible; }
+  .resume-paper { box-shadow: none; padding: 20px; width: 100%; }
+  .builder-layout { display: block; }
+}
